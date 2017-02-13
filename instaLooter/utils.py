@@ -2,12 +2,13 @@
 # coding: utf-8
 from __future__ import print_function
 
-import hues
+#import hues
+import time
 import sys
 import datetime
 import dateutil.relativedelta
 
-console = hues.SimpleConsole(stdout=sys.stderr)
+#console = hues.SimpleConsole(stdout=sys.stderr)
 
 
 def get_times(timeframe):
@@ -57,7 +58,8 @@ def date_from_isoformat(isoformat_date):
 
 
 def warn_with_hues(message, category, filename, lineno, file=None, line=None):
-    console.warn(message)
+    #console.warn(message)
+    warn_windows(message, category, filename, lineno, file, line)
 
 def warn_windows(message, category, filename, lineno, file=None, line=None):
     print(("{t.tm_hour}:{t.tm_min}:{t.tm_sec} - WARNING - "

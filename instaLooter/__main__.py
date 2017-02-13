@@ -76,14 +76,14 @@ import os
 import re
 import sys
 import getpass
-import hues
+#import hues
 import warnings
 
 from . import __version__, __author__, __author_email__
 from .core import InstaLooter
 from .utils import (
     get_times_from_cli, warn_with_hues,
-    console, warn_windows)
+    warn_windows)
 
 
 def main(argv=sys.argv[1:]):
@@ -110,7 +110,8 @@ def main(argv=sys.argv[1:]):
             password = credentials[1] if len(credentials) > 1 else getpass.getpass()
             looter.login(login, password)
             if not args['--quiet']:
-                hues.success('Logged in.')
+                print 'Logged in.'
+                #hues.success('Logged in.')
 
         if args['--time']:
             timeframe = get_times_from_cli(args['--time'])
@@ -118,7 +119,8 @@ def main(argv=sys.argv[1:]):
             timeframe = None
 
     except ValueError as ve:
-        console.error(ve)
+        #console.error(ve)
+        print(ve);
         sys.exit(1)
 
     try:
